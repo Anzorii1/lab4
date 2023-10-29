@@ -1,0 +1,59 @@
+<table class="student-table">
+    <thead>
+      <tr>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>Personal Number</th>
+        <th>country</th>
+        <th>city</th>
+        <th>street</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>
+          {{ student.firstName }} 
+        </td>
+        <td>
+            {{ student.lastName }}
+        </td>
+        <td>
+            {{ student.personalNumber }}
+        </td>
+        <td>
+          {{ student.address.country }}
+        </td>
+        <td>
+            {{ student.address.city }}
+        </td>
+        <td>
+            {{ student.address.street }}
+        </td>
+      </tr>
+    </tbody>
+</table>
+  
+
+
+<h2>Add New Student</h2>
+<form (ngSubmit)="addStudent()" #studentForm="ngForm">
+  <label for="firstName">First Name</label>
+  <input type="text" id="firstName" name="firstName" required [(ngModel)]="newStudent.firstName">
+
+  <label for="lastName">Last Name</label>
+  <input type="text" id="lastName" name="lastName" required [(ngModel)]="newStudent.lastName">
+
+  <label for="personalNumber">Personal Number</label>
+  <input type="text" id="personalNumber" name="personalNumber" required [(ngModel)]="newStudent.personalNumber">
+
+  <label for="country">Country</label>
+  <input type="text" id="country" name="country" required [(ngModel)]="newStudent.address.country">
+
+  <label for="city">City</label>
+  <input type="text" id="city" name="city" required [(ngModel)]="newStudent.address.city">
+
+  <label for="street">Street</label>
+  <input type="text" id="street" name="street" required [(ngModel)]="newStudent.address.street">
+
+  <button type="submit">Add Student</button>
+</form>
